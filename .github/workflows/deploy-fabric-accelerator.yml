@@ -117,10 +117,10 @@ jobs:
            
             fab acl get "${WORKSPACE_NAME}.Workspace"
             echo "wIObjId=$wIObjId"
-            fab ls "${WORKSPACE_NAME}.Workspace/.managedidentities" -l
+            fab ls "${WORKSPACE_NAME}.Workspace/.managedidentities"
 
-            fab ls "${WORKSPACE_NAME}.Workspace/.managedidentities" -output json
-            fab acl get "${WORKSPACE_NAME}.Workspace" -output json
+            fab ls "${WORKSPACE_NAME}.Workspace/.managedidentities" --output_format json
+            fab acl get "${WORKSPACE_NAME}.Workspace" --output_format json
 
             fab acl get "${WORKSPACE_NAME}.Workspace" -q "[?principal.servicePrincipalDetails.aadAppId=='${wIObjId}'] | length(@)" | grep -q '^[1-9]' \
               && echo "Workspace identity already has an ACL in workspace" \
