@@ -115,7 +115,6 @@ jobs:
 
             wIObjId=$(fab ls "${WORKSPACE_NAME}.Workspace/.managedidentities" -l | grep "${WORKSPACE_NAME}.ManagedIdentity" | awk '{print $2}' | tr -d '\r\n')
            
-            wIObjId=$(...)
             echo "wIObjId='$wIObjId'"
             if [ -z "$wIObjId" ]; then
               echo "ERROR: Workspace identity ID could not be determined"
