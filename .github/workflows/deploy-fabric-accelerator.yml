@@ -84,7 +84,7 @@ jobs:
         - name: Authenticate to Fabric
           run: |
             fab config set encryption_fallback_enabled true
-            fab auth login -u ${{ secrets.USER_USERNAME }} -p ${{ secrets.USER_PASSWORD }} --tenant ${{ secrets.TENANT_ID }} 
+            fab auth login -u ${{ secrets.ACTION_SPN_CLIENTID }} -p ${{ secrets.ACTION_SPN_SECRET }} --tenant ${{ secrets.TENANT_ID }} 
 
         # Delete Eventstream if it exists (TEMP WORKAROUND for issue with existing Eventstream during redeployments)
         - name: Delete Eventstream if it exists
